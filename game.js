@@ -363,18 +363,62 @@ const warpMessages = [
   "Landing in the village…",
 ];
 let warpTimer = 0;
+let warpCastFrame = 0;
+const warpCast = document.querySelector("#warp-cast");
+
+function startWarpCast() {
+  const agents = allAgents();
+  warpCast.innerHTML = agents.map((agent, i) => `
+    <figure class="warp-chef" style="--agent-color:${agent.color || "#ff6f9c"};--i:${i}">
+      <img class="warp-chef-body" src="${agent.portrait}" alt="" />
+      <img class="warp-chef-hat" src="${chefHatSrc}" alt="" />
+    </figure>`).join("");
+  const chefs = [...warpCast.children];
+  const planet = document.querySelector("#warp-planet");
+  const startedAt = performance.now();
+  const tick = (now) => {
+    const t = reduceMotion ? 0 : (now - startedAt) / 1000;
+    const rect = planet.getBoundingClientRect();
+    const cx = rect.left + rect.width / 2;
+    const cy = rect.top + rect.height / 2;
+    const span = rect.width * 0.5;
+    chefs.forEach((chef, i) => {
+      const a = (i / chefs.length) * Math.PI * 2 + t * 0.45;
+      const depth = Math.sin(a);
+      const x = cx + Math.cos(a) * span * 0.95;
+      const y = cy + depth * span * 0.32 + Math.sin(t * 2 + i) * 6;
+      const scale = 0.75 + (depth + 1) * 0.18;
+      chef.style.transform = `translate(${x}px, ${y}px) translate(-50%, -50%) scale(${scale})`;
+      chef.style.zIndex = depth > 0 ? 3 : 1;
+      chef.style.opacity = depth > 0 ? 1 : 0.6;
+    });
+    if (!reduceMotion) warpCastFrame = requestAnimationFrame(tick);
+  };
+  warpCastFrame = requestAnimationFrame(tick);
+}
+
+function stopWarpCast() {
+  cancelAnimationFrame(warpCastFrame);
+  warpCast.innerHTML = "";
+}
+
+function dressAgentsAsChefs() {
+  for (const agent of allAgents()) costumeChoices[agent.id] = "chef";
+  localStorage.setItem(COSTUME_KEY, JSON.stringify(costumeChoices));
+}
 
 function travelToVillage(onArrive) {
   runWarp({ messages: warpMessages, view: "village", onArrive, label: "Traveling to the village" });
 }
 
-function runWarp({ messages, view, onArrive, label, duration = 3600 }) {
+function runWarp({ messages, view, onArrive, label, duration = 3600, cast = false }) {
   if (!warp.hidden) return;
   if (agentDialog.open) agentDialog.close();
   warp.setAttribute("aria-label", label);
   warp.hidden = false;
   warp.classList.remove("is-leaving");
   window.PixelPlanet?.start(document.querySelector("#warp-planet"));
+  if (cast) startWarpCast();
   const startedAt = performance.now();
   let lastIndex = -1;
   clearInterval(warpTimer);
@@ -399,6 +443,7 @@ function runWarp({ messages, view, onArrive, label, duration = 3600 }) {
       warp.classList.remove("is-leaving");
       warpBar.style.width = "0";
       window.PixelPlanet?.stop(document.querySelector("#warp-planet"));
+      stopWarpCast();
     }, 500);
   }, 100);
 }
@@ -609,14 +654,26 @@ const sourceIcons = {
   folder: '<path d="M3 6h6l2 2h10v11H3z"/>',
 };
 
+// No chef's-hat emoji exists, so the toque is an SVG used both in the DOM and on the village canvas.
+const CHEF_HAT = "chef-hat";
+const chefHatSrc = `data:image/svg+xml,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 56"><g stroke="#2a2230" stroke-width="2.5" stroke-linejoin="round"><path d="M16 34c-8 0-13-6-12-13 1-8 9-12 16-9 2-7 8-10 13-10s11 3 13 10c7-3 15 1 16 9 1 7-4 13-12 13z" fill="#fffaf2"/><rect x="15" y="32" width="34" height="18" rx="3" fill="#fffaf2"/></g><path d="M18 40h28" stroke="#e8dccb" stroke-width="2.5"/><path d="M24 22c1-4 4-6 8-6" stroke="#e8dccb" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg>`)}`;
+const chefHatImage = new Image();
+chefHatImage.src = chefHatSrc;
+const hatMarkup = (hat, className) => hat === CHEF_HAT
+  ? `<img class="${className} is-toque" src="${chefHatSrc}" alt="" aria-hidden="true" />`
+  : `<span class="${className}" aria-hidden="true">${hat}</span>`;
+
 const costumes = [
   ["none", "Classic", ""],
-  ["crown", "Crown", "👑"],
-  ["tophat", "Top hat", "🎩"],
-  ["cap", "Cap", "🧢"],
-  ["bow", "Bow", "🎀"],
-  ["flower", "Flower", "🌸"],
-  ["grad", "Grad cap", "🎓"],
+  ["chef", "Chef's hat", CHEF_HAT],
+  ["pan", "Skillet", "🍳"],
+  ["spoon", "Spoon", "🥄"],
+  ["chopsticks", "Chopsticks", "🥢"],
+  ["cupcake", "Cupcake", "🧁"],
+  ["croissant", "Croissant", "🥐"],
+  ["chili", "Chili", "🌶️"],
+  ["garlic", "Garlic", "🧄"],
+  ["cherry", "Cherry", "🍒"],
 ];
 const COSTUME_KEY = "sweetmeatz-costumes";
 let costumeChoices = {};
@@ -625,14 +682,14 @@ const costumeFor = (agent) => costumes.find(([id]) => id === costumeChoices[agen
 
 function renderAvatar(agent) {
   const [, , emoji] = costumeFor(agent);
-  dialogAvatar.innerHTML = `<img src="${agent.portrait}" alt="" />${emoji ? `<span class="costume-hat" aria-hidden="true">${emoji}</span>` : ""}`;
+  dialogAvatar.innerHTML = `<img src="${agent.portrait}" alt="" />${emoji ? hatMarkup(emoji, "costume-hat") : ""}`;
 }
 
 function renderCostumes(agent) {
   const current = costumeFor(agent)[0];
   costumeGrid.innerHTML = costumes.map(([id, label, emoji]) => `
     <button class="costume${id === current ? " is-selected" : ""}" type="button" role="radio" aria-checked="${id === current}" data-costume="${id}" title="${label}">
-      <span aria-hidden="true">${emoji || "∅"}</span><small>${label}</small>
+      ${emoji ? hatMarkup(emoji, "costume-icon") : `<span aria-hidden="true">∅</span>`}<small>${label}</small>
     </button>`).join("");
 }
 
@@ -948,6 +1005,10 @@ function drawCostume(actor, x, frameTop, drawHeight, row, frameWidth, frameHeigh
   const emoji = costumeFor(actor)[2];
   if (!emoji) return;
   const headY = frameTop + spriteHeadTop(actor.sprite.image, row, frameWidth, frameHeight) * drawHeight;
+  if (emoji === CHEF_HAT) {
+    if (chefHatImage.complete && chefHatImage.naturalWidth) ctx.drawImage(chefHatImage, x - 13, headY - 18, 26, 23);
+    return;
+  }
   ctx.save();
   ctx.font = "20px 'Apple Color Emoji', 'Segoe UI Emoji', sans-serif";
   ctx.textAlign = "center";
@@ -1190,6 +1251,56 @@ function selectedIn(step) {
   return [...onboardingSteps[step].querySelectorAll('[aria-checked="true"]')];
 }
 
+const problemInput = document.querySelector("#onboarding-note");
+const micButton = document.querySelector("#mic-button");
+const micLabel = document.querySelector("#mic-label");
+const problemStatus = document.querySelector("#problem-status");
+const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+let recognizer = null;
+let recordingBase = "";
+
+function stopRecording() {
+  recognizer?.stop();
+}
+
+function setRecording(on) {
+  micButton.classList.toggle("is-recording", on);
+  micButton.setAttribute("aria-pressed", String(on));
+  micLabel.textContent = on ? "Stop" : "Record";
+  problemStatus.textContent = on ? "Listening… speak naturally" : "";
+}
+
+if (!SpeechRecognition) {
+  micButton.disabled = true;
+  micButton.title = "Voice input isn't supported in this browser";
+} else {
+  micButton.addEventListener("click", () => {
+    if (recognizer) return stopRecording();
+    recognizer = new SpeechRecognition();
+    recognizer.continuous = true;
+    recognizer.interimResults = true;
+    recognizer.lang = navigator.language || "en-US";
+    recordingBase = problemInput.value.trim();
+    recognizer.onresult = (event) => {
+      const spoken = [...event.results].map((r) => r[0].transcript).join("").trim();
+      problemInput.value = [recordingBase, spoken].filter(Boolean).join(" ");
+      renderOnboarding();
+    };
+    recognizer.onerror = (event) => {
+      problemStatus.textContent = event.error === "not-allowed" ? "Microphone access was blocked" : "Couldn't hear that, try again";
+    };
+    recognizer.onend = () => {
+      const message = problemStatus.textContent.startsWith("Listening") ? "" : problemStatus.textContent;
+      recognizer = null;
+      setRecording(false);
+      problemStatus.textContent = message;
+    };
+    recognizer.start();
+    setRecording(true);
+  });
+}
+problemInput.addEventListener("input", () => renderOnboarding());
+
 function renderOnboarding() {
   onboardingSteps.forEach((el, i) => { el.hidden = i !== onboardingStep; });
   onboardingDots.forEach((dot, i) => {
@@ -1197,10 +1308,16 @@ function renderOnboarding() {
     dot.classList.toggle("is-done", i < onboardingStep);
   });
   onboardingCount.textContent = `Step ${onboardingStep + 1} of ${onboardingSteps.length}`;
-  const count = selectedIn(onboardingStep).length;
-  onboardingNext.disabled = count === 0;
-  onboardingPicked.textContent = count ? `${count} selected` : "Pick at least one";
   const last = onboardingStep === onboardingSteps.length - 1;
+  if (last) {
+    const ready = problemInput.value.trim().length >= 3;
+    onboardingNext.disabled = !ready;
+    onboardingPicked.textContent = ready ? "" : "Type or record your problem";
+  } else {
+    const count = selectedIn(onboardingStep).length;
+    onboardingNext.disabled = count === 0;
+    onboardingPicked.textContent = count ? `${count} selected` : "Pick at least one";
+  }
   onboardingNext.innerHTML = last ? 'Get started <span aria-hidden="true">✦</span>' : 'Continue <span aria-hidden="true">→</span>';
   onboardingBack.textContent = onboardingStep ? "← Back" : "← Title";
 }
@@ -1208,7 +1325,9 @@ function renderOnboarding() {
 function startOnboarding() {
   onboardingStep = 0;
   onboarding.querySelectorAll("[role=checkbox]").forEach((el) => el.setAttribute("aria-checked", "false"));
+  stopRecording();
   document.querySelector("#onboarding-note").value = "";
+  problemStatus.textContent = "";
   showView("onboarding");
   renderOnboarding();
 }
@@ -1221,6 +1340,7 @@ onboarding.querySelectorAll("[role=checkbox]").forEach((option) => {
 });
 
 onboardingBack.addEventListener("click", () => {
+  stopRecording();
   if (onboardingStep === 0) return showView("title");
   onboardingStep -= 1;
   renderOnboarding();
@@ -1233,9 +1353,10 @@ onboardingNext.addEventListener("click", () => {
     renderOnboarding();
     return;
   }
+  stopRecording();
   villageSetup.goals = selectedIn(0).map((el) => el.querySelector("strong").textContent);
-  villageSetup.improve = selectedIn(1).map((el) => el.textContent.trim());
-  villageSetup.note = document.querySelector("#onboarding-note").value.trim();
+  villageSetup.note = problemInput.value.trim();
+  villageSetup.improve = [];
   const project = {
     id: `village-${Date.now()}`,
     name: `${villageSetup.goals[0]} village`,
@@ -1244,16 +1365,19 @@ onboardingNext.addEventListener("click", () => {
   };
   saveProjects([project, ...loadProjects()]);
   const focus = (list) => list.slice(0, 2).join(" & ").toLowerCase();
+  const snippet = villageSetup.note.length > 70 ? `${villageSetup.note.slice(0, 70).trim()}…` : villageSetup.note;
+  dressAgentsAsChefs();
   runWarp({
     label: "Building your dashboard",
     view: "dashboard",
     duration: 5200,
+    cast: true,
     onArrive: () => openProject(project),
     messages: [
       `Taking your opportunity space into consideration: ${focus(villageSetup.goals)}…`,
-      `Weighing the problems you want to solve: ${focus(villageSetup.improve)}…`,
+      `Weighing the problem you described: “${snippet}”`,
       "Building your dashboard around what matters most…",
-      "Customizing your agents for your goals…",
+      "Suiting up your agents in chef whites for Brie's kitchen…",
       "Your village is almost ready…",
     ],
   });

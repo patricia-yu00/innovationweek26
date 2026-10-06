@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#050405" />
     <meta name="description" content="sweetmeatz: it takes a village to grow a food business." />
     <title>sweetmeatz — it takes a village</title>
-    <link rel="stylesheet" href="styles.css?v=15" />
+    <link rel="stylesheet" href="styles.css?v=18" />
   </head>
   <body data-view="title">
     <div class="cosmos" aria-hidden="true">
@@ -153,20 +153,18 @@
 
         <div class="onboarding-step" data-step="1" hidden>
           <p class="eyebrow">Almost there</p>
-          <h2>What do you want to achieve and improve?</h2>
-          <p class="onboarding-sub">Choose the areas of your business you want your meatz to level up.</p>
-          <div class="chip-grid" role="group" aria-label="Areas to improve">
-          <button class="choice-chip" type="button" role="checkbox" aria-checked="false" data-value="voice"><svg class="choice-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 15V9h4l5-4v14l-5-4z"/><path d="M17 9a4 4 0 0 1 0 6"/></svg>A consistent brand voice</button>
-          <button class="choice-chip" type="button" role="checkbox" aria-checked="false" data-value="speed"><svg class="choice-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>Faster content turnaround</button>
-          <button class="choice-chip" type="button" role="checkbox" aria-checked="false" data-value="engagement"><svg class="choice-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>More engagement per post</button>
-          <button class="choice-chip" type="button" role="checkbox" aria-checked="false" data-value="collabs"><svg class="choice-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="m20 20-4.2-4.2"/></svg>Finding the right collaborators</button>
-          <button class="choice-chip" type="button" role="checkbox" aria-checked="false" data-value="deals"><svg class="choice-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12 12 20 4 12V4h8z"/><circle cx="8.5" cy="8.5" r="1.4"/></svg>Smarter pricing and deals</button>
-          <button class="choice-chip" type="button" role="checkbox" aria-checked="false" data-value="trends"><svg class="choice-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17 9 11l4 4 8-8"/><path d="M15 7h6v6"/></svg>Staying ahead of food trends</button>
+          <h2>What's getting in your way?</h2>
+          <p class="onboarding-sub">Tell us in your own words what you want to achieve or fix. Type it out or just say it, and your meatz will take it from there.</p>
+          <div class="problem-box" id="problem-box">
+            <textarea id="onboarding-note" rows="6" aria-label="Describe your problem" placeholder="e.g. My cookbook launches in 6 weeks and I'm spending all my time on posts instead of finding bookstores and brand partners. I want to sell out my first supper club too."></textarea>
+            <div class="problem-tools">
+              <span class="problem-status" id="problem-status" aria-live="polite"></span>
+              <button class="mic-button" id="mic-button" type="button" aria-pressed="false">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>
+                <span id="mic-label">Record</span>
+              </button>
+            </div>
           </div>
-          <label class="onboarding-field">
-            <span>Anything else you want to achieve? <small>(optional)</small></span>
-            <textarea id="onboarding-note" rows="3" placeholder="e.g. Sell out my first supper club and get my cookbook into 3 local bookstores"></textarea>
-          </label>
         </div>
 
         <footer class="onboarding-actions">
@@ -270,6 +268,7 @@
     <section class="warp" id="warp" aria-live="polite" aria-label="Traveling to the village" hidden>
       <div class="warp-stars" aria-hidden="true"></div>
       <canvas class="warp-planet" id="warp-planet" width="300" height="300" aria-hidden="true"></canvas>
+      <div class="warp-cast" id="warp-cast" aria-hidden="true"></div>
       <div class="warp-copy">
         <p class="warp-message" id="warp-message">Curating your agents…</p>
         <div class="warp-progress" aria-hidden="true"><i id="warp-bar"></i></div>
@@ -324,7 +323,7 @@
         <div class="agent-status"><span class="live-dot"></span><span id="dialog-status"></span></div>
         <div class="inv-slots" id="inv-slots" role="listbox" aria-label="Choose a meatz"></div>
         <div class="inv-card inv-costumes">
-          <p class="inv-label">Customization · Costumes</p>
+          <p class="inv-label">Customization · Kitchen costumes</p>
           <div class="costume-grid" id="costume-grid" role="radiogroup" aria-label="Costume"></div>
         </div>
         <button class="primary-button join-agent-button" id="join-agent" type="button"></button>
@@ -362,7 +361,7 @@
       </aside>
     </dialog>
 
-    <script src="planet.js?v=15"></script>
-    <script src="game.js?v=15"></script>
+    <script src="planet.js?v=18"></script>
+    <script src="game.js?v=18"></script>
   </body>
 </html>
