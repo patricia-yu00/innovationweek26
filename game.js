@@ -671,6 +671,7 @@ menuButtons.forEach((button, i) => {
 document.querySelector("#menu-create").addEventListener("click", createVillage);
 document.querySelector("#menu-learn").addEventListener("click", () => showView("about"));
 document.querySelector("#menu-load").addEventListener("click", () => openProjects("title"));
+document.querySelector("#menu-shop").addEventListener("click", () => window.open("https://charmz.entapp.adproto.com", "_blank", "noopener"));
 document.querySelector("#menu-quit").addEventListener("click", () => showView("quit"));
 document.querySelector("#quit-back").addEventListener("click", () => showView("title"));
 document.querySelector("#about-back").addEventListener("click", () => showView("title"));
