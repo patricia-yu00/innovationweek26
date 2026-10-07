@@ -4,9 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#050405" />
-    <meta name="description" content="sweetmeatz: it takes a village to grow a food business." />
-    <title>sweetmeatz — it takes a village</title>
-    <link rel="stylesheet" href="styles.css?v=18" />
+    <meta name="description" content="charmz: it takes a village to grow a food business." />
+    <title>charmz — it takes a village</title>
+    <link rel="icon" type="image/png" sizes="64x64" href="./assets/charmz-favicon-64.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="./assets/charmz-icon.png" />
+    <link rel="apple-touch-icon" href="./assets/charmz-apple-touch.png" />
+    <link rel="stylesheet" href="styles.css?v=45" />
   </head>
   <body data-view="title">
     <div class="cosmos" aria-hidden="true">
@@ -14,13 +17,13 @@
       <span class="orb orb-4"></span><span class="orb orb-5"></span>
     </div>
 
-    <section class="title-screen" id="title-screen" aria-label="sweetmeatz title screen">
+    <section class="title-screen" id="title-screen" aria-label="charmz title screen">
       <div class="title-stars" aria-hidden="true"></div>
       <div class="title-stage" id="title-stage" aria-hidden="true">
         <canvas class="title-planet" id="title-planet" width="300" height="300"></canvas>
       </div>
       <div class="title-ui">
-        <h1 class="title-logo"><img src="assets/title-logo.png" alt="sweetmeatz" width="1000" height="548" /></h1>
+        <h1 class="title-logo"><img src="./assets/charmz-logo.png" alt="charmz" /></h1>
         <p class="title-tagline">it takes a village</p>
         <nav class="title-menu" id="title-menu" aria-label="Main menu">
           <button class="menu-button is-primary" id="menu-create" type="button"><span class="menu-caret" aria-hidden="true">▸</span>Create new agent village</button>
@@ -35,23 +38,29 @@
 
     <section class="quit-screen" id="quit-screen" aria-live="polite" hidden>
       <p class="quit-title">See you soon, Brie ♡</p>
-      <p class="quit-sub">Your meatz will keep the village warm while you're away.</p>
+      <p class="quit-sub">Your charmz will keep the village warm while you're away.</p>
       <button class="menu-button is-primary" id="quit-back" type="button"><span class="menu-caret" aria-hidden="true">▸</span>Back to title</button>
     </section>
 
-    <dialog class="learn-dialog projects-dialog" id="projects-dialog" aria-labelledby="projects-title">
-      <button class="dialog-close" id="projects-close" type="button" aria-label="Close">×</button>
-      <p class="eyebrow">Load project</p>
-      <h2 id="projects-title">Pick a village to visit</h2>
-      <ul class="project-list" id="project-list"></ul>
-      <button class="ghost-button projects-new" id="projects-new" type="button">+ Create new agent village</button>
-    </dialog>
+    <section class="projects-screen" id="projects-screen" aria-labelledby="projects-title" hidden>
+      <div class="title-stars" aria-hidden="true"></div>
+      <header class="projects-nav">
+        <button class="ghost-button" id="projects-back" type="button"><span aria-hidden="true">←</span> Back</button>
+        <img class="about-mark" src="./assets/charmz-logo.png" alt="charmz" />
+      </header>
+      <main class="projects-page">
+        <p class="eyebrow">Load project</p>
+        <h1 id="projects-title">Pick a village to visit</h1>
+        <ul class="project-list" id="project-list"></ul>
+        <button class="ghost-button projects-new" id="projects-new" type="button">+ Create new agent village</button>
+      </main>
+    </section>
 
     <section class="about-screen" id="about-screen" aria-labelledby="about-title" hidden>
       <div class="title-stars" aria-hidden="true"></div>
       <header class="about-nav">
         <button class="ghost-button" id="about-back" type="button"><span aria-hidden="true">←</span> Back to title</button>
-        <img class="about-mark" src="assets/title-logo.png" alt="sweetmeatz" width="1000" height="548" />
+        <img class="about-mark" src="./assets/charmz-logo.png" alt="charmz" />
       </header>
 
       <main class="about-page">
@@ -104,7 +113,7 @@
             </article>
             <span class="about-arrow" aria-hidden="true">→</span>
             <article class="is-ours">
-              <small>sweetmeatz</small>
+              <small>charmz</small>
               <h3>A multi-agent ensemble</h3>
               <p>The relationships between characters show how the agents coordinate. That's exactly where Adobe's workflows fit in.</p>
             </article>
@@ -114,7 +123,7 @@
         <section class="about-section">
           <div class="about-head">
             <span class="about-num">04</span>
-            <div><p class="eyebrow">Credits</p><h2>The humans behind the meatz</h2></div>
+            <div><p class="eyebrow">Credits</p><h2>The humans behind the charmz</h2></div>
           </div>
           <ul class="about-credits">
             <li><span>AW</span>Antya Waegemann</li><li><span>EW</span>Eden Wen</li><li><span>GR</span>Gina Ranalli</li>
@@ -132,31 +141,31 @@
     <section class="onboarding" id="onboarding" aria-label="Set up your village" hidden>
       <div class="onboarding-card">
         <header class="onboarding-top">
-          <span class="logo">sweetmeatz<span aria-hidden="true">✦</span></span>
+          <span class="logo"><img class="logo-full" src="./assets/charmz-logo.png" alt="charmz" /><img class="logo-icon" src="./assets/charmz-icon.png" alt="" /></span>
           <div class="onboarding-steps" aria-hidden="true"><i class="is-active"></i><i></i></div>
           <span class="onboarding-count" id="onboarding-count">Step 1 of 2</span>
         </header>
 
         <div class="onboarding-step" data-step="0">
           <p class="eyebrow">Let's build your village</p>
-          <h2>What are your goals, Brie?</h2>
-          <p class="onboarding-sub">Pick everything that matters right now. We'll send the right meatz after it.</p>
+          <h2>What are your business goals?</h2>
+          <p class="onboarding-sub">Select everything that matters right now. We'll tailor your village to support your business.</p>
           <div class="choice-grid" role="group" aria-label="Your goals">
-          <button class="choice-card" type="button" role="checkbox" aria-checked="false" data-value="sell"><svg class="choice-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h9a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z"/><path d="M5 17a3 3 0 0 1 3-3h9"/></svg><span><strong>Sell more cookbooks</strong><small>Turn readers into buyers</small></span><span class="choice-check" aria-hidden="true"></span></button>
-          <button class="choice-card" type="button" role="checkbox" aria-checked="false" data-value="audience"><svg class="choice-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.6"/><path d="M16 14.2c2.9.3 5 2.6 5 5.8"/></svg><span><strong>Grow my audience</strong><small>Reach new food lovers</small></span><span class="choice-check" aria-hidden="true"></span></button>
-          <button class="choice-card" type="button" role="checkbox" aria-checked="false" data-value="partners"><svg class="choice-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m11 17 2 2a1.4 1.4 0 0 0 2-2"/><path d="m14 14 2.5 2.5a1.4 1.4 0 0 0 2-2L15 11l-2.5 2.5a1.6 1.6 0 0 1-2.2-2.2L13 8.5l-1.5-1.5L3 12"/><path d="m21 12-4-4-4.5 1"/><path d="m3 12 4 4"/></svg><span><strong>Land brand partners</strong><small>Collabs that fit my vibe</small></span><span class="choice-check" aria-hidden="true"></span></button>
-          <button class="choice-card" type="button" role="checkbox" aria-checked="false" data-value="events"><svg class="choice-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 11h18"/></svg><span><strong>Host IRL events</strong><small>Launches, supper clubs, pop-ups</small></span><span class="choice-check" aria-hidden="true"></span></button>
-          <button class="choice-card" type="button" role="checkbox" aria-checked="false" data-value="content"><svg class="choice-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h3l1.5-2.5h7L17 8h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13.5" r="3.5"/></svg><span><strong>Create better content</strong><small>Posts people save and share</small></span><span class="choice-check" aria-hidden="true"></span></button>
-          <button class="choice-card" type="button" role="checkbox" aria-checked="false" data-value="metrics"><svg class="choice-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16"/><path d="M7 16v-4"/><path d="M12 16V8"/><path d="M17 16V5"/></svg><span><strong>Understand my metrics</strong><small>Know what's actually working</small></span><span class="choice-check" aria-hidden="true"></span></button>
+          <button class="choice-card" type="button" role="checkbox" aria-checked="false" data-value="sell"><svg class="choice-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h9a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z"/><path d="M5 17a3 3 0 0 1 3-3h9"/></svg><span><strong>Grow revenue</strong><small>Increase sales and recurring income</small></span><span class="choice-check" aria-hidden="true"></span></button>
+          <button class="choice-card" type="button" role="checkbox" aria-checked="false" data-value="audience"><svg class="choice-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.6"/><path d="M16 14.2c2.9.3 5 2.6 5 5.8"/></svg><span><strong>Reach more customers</strong><small>Expand your audience and find new markets</small></span><span class="choice-check" aria-hidden="true"></span></button>
+          <button class="choice-card" type="button" role="checkbox" aria-checked="false" data-value="partners"><svg class="choice-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m11 17 2 2a1.4 1.4 0 0 0 2-2"/><path d="m14 14 2.5 2.5a1.4 1.4 0 0 0 2-2L15 11l-2.5 2.5a1.6 1.6 0 0 1-2.2-2.2L13 8.5l-1.5-1.5L3 12"/><path d="m21 12-4-4-4.5 1"/><path d="m3 12 4 4"/></svg><span><strong>Build partnerships</strong><small>Find collaborators and strategic partners</small></span><span class="choice-check" aria-hidden="true"></span></button>
+          <button class="choice-card" type="button" role="checkbox" aria-checked="false" data-value="events"><svg class="choice-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 11h18"/></svg><span><strong>Host events</strong><small>Plan launches, workshops, and customer events</small></span><span class="choice-check" aria-hidden="true"></span></button>
+          <button class="choice-card" type="button" role="checkbox" aria-checked="false" data-value="content"><svg class="choice-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h3l1.5-2.5h7L17 8h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13.5" r="3.5"/></svg><span><strong>Create effective content</strong><small>Make content that informs and resonates</small></span><span class="choice-check" aria-hidden="true"></span></button>
+          <button class="choice-card" type="button" role="checkbox" aria-checked="false" data-value="metrics"><svg class="choice-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16"/><path d="M7 16v-4"/><path d="M12 16V8"/><path d="M17 16V5"/></svg><span><strong>Track business performance</strong><small>Understand what's working across your business</small></span><span class="choice-check" aria-hidden="true"></span></button>
           </div>
         </div>
 
         <div class="onboarding-step" data-step="1" hidden>
           <p class="eyebrow">Almost there</p>
           <h2>What's getting in your way?</h2>
-          <p class="onboarding-sub">Tell us in your own words what you want to achieve or fix. Type it out or just say it, and your meatz will take it from there.</p>
+          <p class="onboarding-sub">Tell us in your own words what you want to achieve or fix. Type it out or just say it, and your charmz will take it from there.</p>
           <div class="problem-box" id="problem-box">
-            <textarea id="onboarding-note" rows="6" aria-label="Describe your problem" placeholder="e.g. My cookbook launches in 6 weeks and I'm spending all my time on posts instead of finding bookstores and brand partners. I want to sell out my first supper club too."></textarea>
+            <textarea id="onboarding-note" rows="6" aria-label="Describe your problem" placeholder="e.g. We're launching a new service in 6 weeks and need help reaching customers, creating content, and keeping up with day-to-day operations."></textarea>
             <div class="problem-tools">
               <span class="problem-status" id="problem-status" aria-live="polite"></span>
               <button class="mic-button" id="mic-button" type="button" aria-pressed="false">
@@ -176,19 +185,25 @@
     </section>
 
     <section class="dashboard-scene" id="dashboard" hidden aria-label="Brie's dashboard">
+      <header class="enter-banner">
+        <div>
+          <strong>Your village is buzzing.</strong>
+          <span>Step inside and see your charmz at work.</span>
+        </div>
+        <button class="primary-button" id="enter-village" type="button">Enter the village <span aria-hidden="true">→</span></button>
+      </header>
       <div class="dashboard-float">
 
         <aside class="dash-sidebar">
           <div class="dash-sidebar-inner">
-          <a class="logo" href="#" aria-label="sweetmeatz home">sweetmeatz<span aria-hidden="true">✦</span></a>
+          <a class="logo" href="#" aria-label="charmz home"><img class="logo-full" src="./assets/charmz-logo.png" alt="charmz" /><img class="logo-icon" src="./assets/charmz-icon.png" alt="" /></a>
           <nav class="dash-nav" aria-label="Dashboard">
-            <a class="is-active" href="#" aria-current="page" title="Home"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20h5v-6h4v6h5V9.5"/></svg>Home</a>
-            <a href="#meatz-panel" title="Your meatz"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.6"/><path d="M16 14.2c2.9.3 5 2.6 5 5.8"/></svg>Your meatz</a>
-            <a href="#goals-panel" title="Goals"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></svg>Goals</a>
-            <a href="#meatz-panel" title="Venues"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Venues</a>
-            <a href="#meatz-panel" title="Contractors"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/><path d="M3 13h18"/></svg>Contractors</a>
-            <a href="#meatz-panel" title="Content"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h3l1.5-2.5h7L17 8h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13.5" r="3.5"/></svg>Content</a>
-            <a href="#momentum-panel" title="Metrics"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16"/><path d="M7 16v-4"/><path d="M12 16V8"/><path d="M17 16V5"/></svg>Metrics</a>
+            <a class="is-active" href="#home" data-dashboard-tab="home" aria-current="page" title="Home"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20h5v-6h4v6h5V9.5"/></svg>Home</a>
+            <a href="#agents" data-dashboard-tab="agents" title="Your charmz"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.6"/><path d="M16 14.2c2.9.3 5 2.6 5 5.8"/></svg>Your charmz</a>
+            <a href="#goals" data-dashboard-tab="goals" title="Goals"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></svg>Goals</a>
+            <a href="#collaborators" data-dashboard-tab="collaborators" title="Collaborators"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Collaborators</a>
+            <a href="#content" data-dashboard-tab="content" title="Content"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h3l1.5-2.5h7L17 8h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13.5" r="3.5"/></svg>Content</a>
+            <a href="#metrics" data-dashboard-tab="metrics" title="Metrics"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16"/><path d="M7 16v-4"/><path d="M12 16V8"/><path d="M17 16V5"/></svg>Metrics</a>
           </nav>
           <nav class="dash-nav dash-nav-bottom" aria-label="Projects">
             <p class="dash-project" title="Current project"><small>Project</small><span id="dash-project-name">Brie's cookbook launch</span></p>
@@ -203,63 +218,66 @@
         </aside>
 
         <div class="dash-main">
-          <header class="dash-header">
-            <div>
-              <h1>Good morning, Brie <span class="sparkle" aria-hidden="true">✨</span></h1>
-              <p>Your village is on it. Here's what's happening with your cookbook.</p>
+          <section class="dash-tab is-active" id="tab-home" data-tab-panel="home" aria-labelledby="home-title">
+            <header class="dash-header"><div><h1 id="home-title">Your business at a glance</h1><p>See what your village is working on and how your business is growing.</p></div><span class="date-pill">Sample data · Last 28 days</span></header>
+            <div class="stat-grid">
+              <div class="stat"><strong>$12.8K</strong><span>Revenue</span><em>↑ 18%</em></div>
+              <div class="stat"><strong>24.6<small>K</small></strong><span>Social audience</span><em>↑ 12%</em></div>
+              <div class="stat"><strong>8</strong><span>Collaborators found</span><em>↑ 3</em></div>
+              <div class="stat"><strong>12</strong><span>Posts planned</span><em>↑ 4</em></div>
             </div>
-            <span class="date-pill">Last 28 days</span>
-          </header>
-
-          <div class="enter-banner">
-            <div>
-              <strong>Your village is buzzing.</strong>
-              <span>Step inside and see your meatz at work.</span>
-            </div>
-            <button class="primary-button" id="enter-village" type="button">Enter the village <span aria-hidden="true">→</span></button>
-          </div>
-
-          <div class="stat-grid">
-            <div class="stat"><strong>2,480</strong><span>Cookbooks sold</span><em>↑ 18%</em></div>
-            <div class="stat"><strong>124.2<small>K</small></strong><span>Total followers</span><em>↑ 12%</em></div>
-            <div class="stat"><strong>8</strong><span>Venues shortlisted</span><em>↑ 3</em></div>
-            <div class="stat"><strong>14</strong><span>Contractors contacted</span><em>↑ 5</em></div>
-          </div>
-
-          <div class="dash-grid">
-            <section class="panel meatz-panel" id="meatz-panel" aria-labelledby="meatz-title">
-              <div class="panel-head">
-                <h2 id="meatz-title">Your meatz</h2>
-                <span class="live-pill"><span class="live-dot"></span>7 working now</span>
+            <div class="dash-grid">
+              <section class="panel" aria-labelledby="home-agent-title"><div class="panel-head"><h2 id="home-agent-title">Agent activity</h2><a class="text-link" href="#agents" data-dashboard-tab="agents">View all →</a></div><div class="charmz-list" id="dashboard-agents"></div></section>
+              <div class="dash-side">
+                <section class="panel"><div class="panel-head"><h2>Goal progress</h2><a class="text-link" href="#goals" data-dashboard-tab="goals">Edit goals →</a></div><ul class="goal-list" id="home-goal-list"></ul></section>
+                <section class="panel activity-panel"><div class="panel-head"><h2>Latest updates</h2><span class="live-pill"><span class="live-dot"></span>Live</span></div><ul class="activity-list">
+                  <li><i class="activity-icon">↗</i><span><strong>Audience Scout</strong> found 3 promising customer communities.</span><small>12 min ago</small></li>
+                  <li><i class="activity-icon">✦</i><span><strong>Trend Spotter</strong> added a trend to your content plan.</span><small>38 min ago</small></li>
+                  <li><i class="activity-icon">✓</i><span><strong>Brand Guardian</strong> reviewed a scheduled post.</span><small>1 hr ago</small></li>
+                </ul></section>
               </div>
-              <div class="meatz-list" id="dashboard-agents"></div>
-            </section>
-
-            <div class="dash-side">
-              <section class="panel" id="goals-panel" aria-labelledby="goals-title">
-                <div class="panel-head"><h2 id="goals-title">Success goals</h2></div>
-                <ul class="goal-list">
-                  <li><span>Sell 5,000 cookbooks</span><b>50%</b><i style="--value: 50%"></i></li>
-                  <li><span>Book 3 launch events</span><b>1 of 3</b><i style="--value: 33%"></i></li>
-                  <li><span>Reach 150K followers</span><b>83%</b><i style="--value: 83%"></i></li>
-                  <li><span>Land 2 brand partners</span><b>1 of 2</b><i style="--value: 50%"></i></li>
-                </ul>
-              </section>
-
-              <section class="panel momentum" id="momentum-panel" aria-labelledby="momentum-title">
-                <div class="panel-head"><h2 id="momentum-title">Cookbook momentum</h2><span class="callout">+24K new readers</span></div>
-                <svg viewBox="0 0 300 100" role="img" aria-label="Cookbook interest has grown steadily over the last 28 days">
-                  <defs>
-                    <linearGradient id="line" x1="0" x2="1"><stop offset="0" stop-color="#63e0d8" /><stop offset="0.5" stop-color="#ff4fa3" /><stop offset="1" stop-color="#ff7a3d" /></linearGradient>
-                    <linearGradient id="fill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#ff7a3d" stop-opacity="0.3" /><stop offset="1" stop-color="#ff4fa3" stop-opacity="0" /></linearGradient>
-                  </defs>
-                  <path d="M0 88 L40 80 L80 76 L120 66 L160 60 L200 48 L240 38 L270 20 L300 14 L300 100 L0 100 Z" fill="url(#fill)" />
-                  <polyline points="0,88 40,80 80,76 120,66 160,60 200,48 240,38 270,20 300,14" fill="none" stroke="url(#line)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-              </section>
             </div>
-          </div>
-
+          </section>
+          <section class="dash-tab" id="tab-agents" data-tab-panel="agents" aria-labelledby="agents-page-title" hidden>
+            <header class="dash-header"><div><h1 id="agents-page-title">Your charmz</h1><p>See each agent's focus and progress, or give them a new task.</p></div><span class="live-pill"><span class="live-dot"></span>7 working</span></header>
+            <div class="agent-work-list" id="agent-work-list"></div>
+          </section>
+          <section class="dash-tab" id="tab-goals" data-tab-panel="goals" aria-labelledby="goals-page-title" hidden>
+            <header class="dash-header"><div><h1 id="goals-page-title">Goals</h1><p>Set the outcomes that matter to you. Update or remove them any time.</p></div><button class="primary-button" id="add-goal" type="button">+ Add a goal</button></header>
+            <div class="goal-editor-list" id="goal-editor-list"></div>
+          </section>
+          <section class="dash-tab" id="tab-collaborators" data-tab-panel="collaborators" aria-labelledby="collaborators-title" hidden>
+            <header class="dash-header"><div><h1 id="collaborators-title">Collaborators</h1><p>People and organizations your agents found for your business.</p></div><span class="date-pill">Venues · Contractors · Partners</span></header>
+            <div class="collaborator-grid">
+              <article class="panel collaborator-card"><img class="collab-photo" src="./assets/photos/collab-gather.jpg" alt="" loading="lazy" /><span class="collab-type">VENUE</span><h2>Gather &amp; Grain</h2><p>Event space · 80 capacity · Downtown</p><div class="collab-meta"><span class="collab-match">92% match</span><span>Availability confirmed</span></div><button class="ghost-button" type="button">View details →</button></article>
+              <article class="panel collaborator-card"><img class="collab-photo" src="./assets/photos/collab-northline.jpg" alt="" loading="lazy" /><span class="collab-type">CONTRACTOR</span><h2>Northline Studio</h2><p>Brand photography · Product and campaign shoots</p><div class="collab-meta"><span class="collab-match">88% match</span><span>Available this month</span></div><button class="ghost-button" type="button">View details →</button></article>
+              <article class="panel collaborator-card"><img class="collab-photo" src="./assets/photos/collab-fieldwork.jpg" alt="" loading="lazy" /><span class="collab-type">PARTNER</span><h2>Fieldwork Market</h2><p>Retail partner · Regional customer reach</p><div class="collab-meta"><span class="collab-match">84% match</span><span>Intro ready</span></div><button class="ghost-button" type="button">View details →</button></article>
+              <article class="panel collaborator-card"><img class="collab-photo" src="./assets/photos/collab-brightside.jpg" alt="" loading="lazy" /><span class="collab-type">CONTRACTOR</span><h2>Brightside Digital</h2><p>Paid media · Campaign planning and optimization</p><div class="collab-meta"><span class="collab-match">81% match</span><span>Shortlist</span></div><button class="ghost-button" type="button">View details →</button></article>
+            </div>
+          </section>
+          <section class="dash-tab" id="tab-content" data-tab-panel="content" aria-labelledby="content-title" hidden>
+            <header class="dash-header"><div><h1 id="content-title">Content studio</h1><p>Visuals your agents gathered and posts planned for your channels.</p></div><span class="date-pill">12 items · 4 ready to review</span></header>
+            <div class="content-grid">
+              <article class="panel content-card"><div class="content-art art-recipe"><img class="content-photo" src="./assets/photos/content-weeknight.jpg" alt="" loading="lazy" /><span>THE EVERYDAY TABLE</span><b>Fresh ideas<br />for the week</b></div><div class="content-copy"><div><strong>Weeknight favorites</strong><small>Instagram · Carousel · Thu, 12:30 PM</small></div><span class="content-status">Ready</span></div></article>
+              <article class="panel content-card"><div class="content-art art-maker"><img class="content-photo" src="./assets/photos/content-maker.jpg" alt="" loading="lazy" /><span>BEHIND THE BRAND</span><b>Made with<br />intention</b></div><div class="content-copy"><div><strong>Meet the maker</strong><small>LinkedIn · Photo · Fri, 9:00 AM</small></div><span class="content-status">In review</span></div></article>
+              <article class="panel content-card"><div class="content-art art-community"><img class="content-photo" src="./assets/photos/content-customer.jpg" alt="" loading="lazy" /><span>COMMUNITY NOTES</span><b>Good things<br />are growing</b></div><div class="content-copy"><div><strong>Customer story</strong><small>Instagram · Story · Fri, 5:00 PM</small></div><span class="content-status">Draft</span></div></article>
+            </div>
+          </section>
+          <section class="dash-tab" id="tab-metrics" data-tab-panel="metrics" aria-labelledby="metrics-title" hidden>
+            <header class="dash-header"><div><h1 id="metrics-title">Business metrics</h1><p>Social performance, audience growth, and revenue trends.</p></div><span class="date-pill">Sample data · Last 28 days</span></header>
+            <div class="stat-grid">
+              <div class="stat"><strong>$12,840</strong><span>Revenue</span><em>↑ 18.4%</em></div>
+              <div class="stat"><strong>24,680</strong><span>Social followers</span><em>↑ 12.1%</em></div>
+              <div class="stat"><strong>6.8%</strong><span>Engagement rate</span><em>↑ 0.9 pts</em></div>
+              <div class="stat"><strong>1,420</strong><span>Site visits from social</span><em>↑ 21%</em></div>
+            </div>
+            <div class="dash-grid metrics-grid">
+              <section class="panel momentum" aria-labelledby="revenue-chart-title"><div class="panel-head"><h2 id="revenue-chart-title">Revenue over time</h2><span class="callout">+$2,000 · 18.4%</span></div><svg viewBox="0 0 300 100" role="img" aria-label="Sample revenue trend rising over the last 28 days">
+                <defs><linearGradient id="line" x1="0" x2="1"><stop offset="0" stop-color="#63e0d8" /><stop offset="0.5" stop-color="#ff4fa3" /><stop offset="1" stop-color="#ff7a3d" /></linearGradient><linearGradient id="fill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#ff7a3d" stop-opacity="0.3" /><stop offset="1" stop-color="#ff4fa3" stop-opacity="0" /></linearGradient></defs>
+                <path d="M0 88 L40 80 L80 76 L120 66 L160 60 L200 48 L240 38 L270 20 L300 14 L300 100 L0 100 Z" fill="url(#fill)" /><polyline points="0,88 40,80 80,76 120,66 160,60 200,48 240,38 270,20 300,14" fill="none" stroke="url(#line)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" /></svg><div class="chart-axis"><span>Sep 9</span><span>Sep 23</span><span>Oct 6</span></div></section>
+              <section class="panel"><div class="panel-head"><h2>Social channels</h2></div><ul class="channel-list"><li><span class="channel-badge">IG</span><span><strong>Instagram</strong><small>Reach · 18.2K</small></span><b>↑ 14%</b></li><li><span class="channel-badge is-linkedin">in</span><span><strong>LinkedIn</strong><small>Engagement · 7.1%</small></span><b>↑ 9%</b></li><li><span class="channel-badge is-tiktok">♪</span><span><strong>TikTok</strong><small>Video views · 42.8K</small></span><b>↑ 26%</b></li></ul></section>
+            </div>
+          </section>
         </div>
       </div>
       <p class="handwritten" aria-hidden="true">new venues,<br />new readers,<br />new stories ♡</p>
@@ -272,26 +290,55 @@
       <div class="warp-copy">
         <p class="warp-message" id="warp-message">Curating your agents…</p>
         <div class="warp-progress" aria-hidden="true"><i id="warp-bar"></i></div>
-        <p class="warp-sub">sweetmeatz · it takes a village</p>
+        <p class="warp-sub">charmz · it takes a village</p>
       </div>
     </section>
 
     <main class="game-shell" id="village" aria-label="The village" hidden>
       <section class="world-frame" aria-label="Game world">
-        <canvas id="world" aria-label="The sweetmeatz village, where your agents work together"></canvas>
+        <canvas id="world" aria-label="The charmz village, where your agents work together"></canvas>
+        <button class="collab-bubble" id="collab-bubble" type="button" aria-label="Open collaboration brief" hidden>
+          <span class="collab-bubble-dots" aria-hidden="true">•••</span>
+          <span>3 charmz collaborating</span>
+        </button>
+        <div class="deliverable-layer" id="deliverable-layer" aria-live="polite"></div>
+        <div class="deliverable-layer" id="decision-layer" aria-live="polite"></div>
         <div class="world-hint">
-          <span class="hint-key">W</span><span class="hint-key">A</span><span class="hint-key">S</span><span class="hint-key">D</span>
-          <span class="hint-divider"></span> to wander · click a meatz to see their work
+          Drag to look around <span class="hint-divider"></span> click a charmz to see their work
+        </div>
+        <div class="village-settings-wrap">
+          <div class="village-settings" id="village-settings" role="group" aria-label="Village background" hidden>
+            <p>Village background</p>
+            <div class="village-theme-grid">
+              <button type="button" data-village-theme="night" aria-pressed="false"><span class="theme-swatch is-night"></span>Night glow</button>
+              <button type="button" data-village-theme="meadow" aria-pressed="false"><span class="theme-swatch is-meadow"></span>Meadow</button>
+              <button type="button" data-village-theme="sunset" aria-pressed="false"><span class="theme-swatch is-sunset"></span>Sunset</button>
+              <button type="button" data-village-theme="ocean" aria-pressed="false"><span class="theme-swatch is-ocean"></span>Ocean</button>
+              <button type="button" data-village-theme="custom" aria-pressed="false"><span class="theme-swatch is-custom">+</span>Your image</button>
+            </div>
+            <label class="village-upload">Upload a background<input id="village-bg-upload" type="file" accept="image/*" /></label>
+          </div>
+          <button class="village-settings-toggle" id="village-settings-toggle" type="button" aria-expanded="false" aria-controls="village-settings" aria-label="Village settings">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.9 4.9 7 7M17 17l2.1 2.1M2 12h3M19 12h3M4.9 19.1 7 17M17 7l2.1-2.1"/></svg>
+          </button>
         </div>
         <div class="toast" id="toast" role="status" aria-live="polite"></div>
       </section>
 
       <div class="village-hud">
         <header class="topbar">
-          <a class="logo" href="#" aria-label="sweetmeatz home">sweetmeatz<span aria-hidden="true">✦</span></a>
+          <a class="logo" href="#" aria-label="charmz home"><img class="logo-full" src="./assets/charmz-logo.png" alt="charmz" /><img class="logo-icon" src="./assets/charmz-icon.png" alt="" /></a>
           <div class="location-tag"><svg class="inline-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg> THE VILLAGE</div>
-          <span class="live-pill"><span class="live-dot"></span><strong>7 meatz</strong>&nbsp;working for you right now</span>
+          <span class="live-pill"><span class="live-dot"></span><strong>7 charmz</strong>&nbsp;working for you right now</span>
           <div class="topbar-actions">
+            <div class="notify-wrap">
+              <button class="notify-button" id="notify-button" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="notify-panel" title="Agent progress"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 16V11a6 6 0 1 1 12 0v5l1.5 2h-15z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></svg><span class="notify-count">0</span></button>
+              <div class="notify-panel" id="notify-panel" role="dialog" aria-label="Agent progress" hidden>
+                <div class="notify-head"><strong>Agent progress</strong><small>Everything your charmz are working on</small></div>
+                <div class="notify-summary"></div>
+                <ul class="notify-list"></ul>
+              </div>
+            </div>
             <button class="ghost-button" id="back-to-dashboard" type="button"><span aria-hidden="true">←</span> Dashboard</button>
             <button class="ghost-button" id="reset-button" type="button">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3.5 10 8.5-7 8.5 7v10a1 1 0 0 1-1 1h-15a1 1 0 0 1-1-1z" /><path d="M9 21v-7h6v7" /></svg>
@@ -306,22 +353,61 @@
       </div>
     </main>
 
+    <section class="venue-designer" id="venue-designer" aria-labelledby="venue-designer-title" hidden>
+      <header class="designer-header">
+        <button class="ghost-button" id="designer-back" type="button"><span aria-hidden="true">←</span> Back to venues</button>
+        <div class="designer-title"><p class="eyebrow">Event space planner</p><h1 id="venue-designer-title">Design your event space</h1></div>
+        <div class="designer-actions">
+          <button class="ghost-button" id="designer-reset" type="button">Reset room</button>
+          <button class="primary-button" id="designer-fullscreen" type="button" aria-pressed="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3m13-5h3a2 2 0 0 1 2 2v3M3 16v3a2 2 0 0 0 2 2h3m13-5v3a2 2 0 0 1-2 2h-3"/></svg>
+            <span>Full screen</span>
+          </button>
+        </div>
+      </header>
+      <div class="designer-layout">
+        <aside class="designer-catalog" aria-labelledby="designer-catalog-title">
+          <div class="designer-catalog-head">
+            <div><p class="inv-label">Build your layout</p><h2 id="designer-catalog-title">Furniture &amp; decor</h2></div>
+            <span class="designer-item-count" id="designer-item-count">0 selected</span>
+          </div>
+          <p class="designer-help">Choose pieces to add them to the room. Drag anything in the room to rearrange it.</p>
+          <div class="designer-products" id="designer-products"></div>
+          <div class="designer-budget"><span>Estimated rental total</span><strong id="designer-total">$0</strong><small>Sample prices · confirm with your venue</small></div>
+        </aside>
+        <div class="designer-stage-wrap">
+          <div class="designer-stage-toolbar">
+            <div><span class="live-dot"></span><strong id="designer-venue-name">Choose a venue</strong><span id="designer-venue-meta"></span></div>
+            <span class="designer-tip">Drag pieces to move · use × to remove</span>
+            <span class="designer-feedback" id="designer-feedback" aria-live="polite"></span>
+          </div>
+          <div class="venue-room-stage" id="venue-room-stage" aria-label="Interactive event room layout">
+            <img class="venue-room-backdrop" src="./assets/photos/venue-room.jpg" alt="" draggable="false" />
+            <div class="venue-room-label" id="venue-room-label"></div>
+            <div class="venue-room-furniture" id="venue-room-furniture"></div>
+            <p class="venue-room-empty" id="venue-room-empty">Start with a table, then make the space yours.</p>
+          </div>
+          <p class="designer-disclaimer">Room preview is an illustrative layout, not a measured floor plan. Confirm dimensions, access, and rental availability before booking.</p>
+        </div>
+      </div>
+    </section>
+
     <dialog class="agent-dialog inventory" id="agent-dialog" aria-labelledby="agent-name">
       <div class="inv-scene" aria-hidden="true"><div class="inv-glow"></div><div class="inv-grid-floor"></div></div>
       <button class="dialog-close" id="dialog-close" type="button" aria-label="Close agent details">×</button>
 
       <aside class="inv-panel inv-roster">
-        <div class="inv-carousel-top"><p class="inv-sub">Meatz crew</p><span class="inv-count" id="inv-count"></span></div>
+        <div class="inv-carousel-top"><p class="inv-sub">Charmz crew</p><span class="inv-count" id="inv-count"></span></div>
         <div class="inv-hero">
-          <button class="inv-arrow is-prev" id="inv-prev" type="button" aria-label="Previous meatz">‹</button>
+          <button class="inv-arrow is-prev" id="inv-prev" type="button" aria-label="Previous charmz">‹</button>
           <div class="inv-hero-figure" id="dialog-avatar"></div>
-          <button class="inv-arrow is-next" id="inv-next" type="button" aria-label="Next meatz">›</button>
+          <button class="inv-arrow is-next" id="inv-next" type="button" aria-label="Next charmz">›</button>
           <div class="inv-pedestal" aria-hidden="true"></div>
         </div>
         <h2 class="inv-title" id="agent-name"></h2>
         <p class="eyebrow inv-role" id="dialog-role"></p>
         <div class="agent-status"><span class="live-dot"></span><span id="dialog-status"></span></div>
-        <div class="inv-slots" id="inv-slots" role="listbox" aria-label="Choose a meatz"></div>
+        <div class="inv-slots" id="inv-slots" role="listbox" aria-label="Choose a charmz"></div>
         <div class="inv-card inv-costumes">
           <p class="inv-label">Customization · Kitchen costumes</p>
           <div class="costume-grid" id="costume-grid" role="radiogroup" aria-label="Costume"></div>
@@ -361,7 +447,130 @@
       </aside>
     </dialog>
 
-    <script src="planet.js?v=18"></script>
-    <script src="game.js?v=18"></script>
+    <dialog class="battle-dialog" id="decision-dialog" aria-labelledby="battle-prompt">
+      <button class="dialog-close" type="button" data-close-decision aria-label="Ask me later">×</button>
+      <div class="battle-scene">
+        <div class="battle-backdrop" aria-hidden="true"><div class="inv-glow"></div><div class="inv-grid-floor"></div></div>
+        <div class="battle-topic-card">
+          <span class="battle-topic-label"><i aria-hidden="true">!</i> Decision needed</span>
+          <strong id="battle-topic">Venue hold</strong>
+        </div>
+        <div class="battle-platform is-far" aria-hidden="true">
+          <span class="battle-topic-icon" id="battle-topic-icon">📍</span>
+        </div>
+        <div class="battle-platform is-near">
+          <img id="battle-agent-img" src="" alt="" />
+        </div>
+        <div class="battle-status">
+          <div class="battle-status-top"><strong id="battle-name">Agent</strong><span id="battle-role">Role</span></div>
+          <div class="battle-hp"><span class="battle-hp-label">Task progress</span><span class="battle-hp-value" id="battle-progress-label">0%</span></div>
+          <span class="battle-hp-track"><i id="battle-progress"></i></span>
+          <span class="battle-paused">⏸ Paused — waiting on you</span>
+        </div>
+      </div>
+      <div class="battle-menu">
+        <div class="battle-text">
+          <p class="battle-prompt" id="battle-prompt"></p>
+          <p class="battle-detail">Pick a next step</p>
+        </div>
+        <div class="battle-options" id="battle-options"></div>
+      </div>
+    </dialog>
+
+    <dialog class="agent-dialog inventory collab-dialog" id="collab-dialog" aria-labelledby="collab-title">
+      <div class="inv-scene" aria-hidden="true"><div class="inv-glow"></div><div class="inv-grid-floor"></div></div>
+      <button class="dialog-close" id="collab-close" type="button" aria-label="Close collaboration details">×</button>
+
+      <aside class="inv-panel inv-roster collab-roster">
+        <div class="inv-carousel-top"><p class="inv-sub">Collaboration crew</p><span class="inv-count">3 agents</span></div>
+        <div class="collab-hero" aria-hidden="true">
+          <div class="inv-pedestal"></div>
+          <img src="./assets/sprites/matchmaker-portrait.png" alt="" />
+          <img src="./assets/sprites/social-butterfly-portrait.png" alt="" />
+          <img src="./assets/sprites/trendsetter-portrait.png" alt="" />
+        </div>
+        <h2 class="inv-title" id="collab-title">Growth sprint</h2>
+        <p class="eyebrow inv-role">Working together</p>
+        <div class="agent-status"><span class="live-dot"></span><span>Sharing ideas and building a plan</span></div>
+        <div class="collab-roster-list" aria-label="What each agent brings">
+          <div><img src="./assets/sprites/matchmaker-portrait.png" alt="" /><span><strong>Matchmaker</strong><small>Finds potential partners</small></span></div>
+          <div><img src="./assets/sprites/social-butterfly-portrait.png" alt="" /><span><strong>Social butterfly</strong><small>Maps the right audiences</small></span></div>
+          <div><img src="./assets/sprites/trendsetter-portrait.png" alt="" /><span><strong>Trendsetter</strong><small>Finds event decor &amp; furniture</small></span></div>
+        </div>
+      </aside>
+
+      <section class="inv-stage inv-workspace collab-workspace" aria-label="How the agents are collaborating">
+        <p class="inv-label ws-eyebrow">Shared workspace · Event plan</p>
+        <div class="ws-head">
+          <h3 class="ws-title">Collaboration deliverables</h3>
+          <p class="ws-sub">A sample partner-hosted tasting event, researched from three angles.</p>
+        </div>
+        <div class="ws-body">
+          <section class="collab-deliverable" aria-labelledby="collab-partners-title">
+            <div class="collab-deliverable-head">
+              <span class="collab-flow-number">01</span>
+              <div><p class="collab-flow-agent">Matchmaker · Partner shortlist</p><h4 id="collab-partners-title">Potential event partners</h4></div>
+            </div>
+            <ul class="collab-partner-list">
+              <li><span class="collab-partner-icon"><img src="./assets/photos/partner-marco.jpg" alt="" loading="lazy" /></span><span><strong>Chef Marco Ruiz</strong><small>Local chef &amp; creator · co-host a tasting</small></span><b>Strong fit</b></li>
+              <li><span class="collab-partner-icon"><img src="./assets/photos/partner-dumpling.jpg" alt="" loading="lazy" /></span><span><strong>The Dumpling Club</strong><small>Supper club · cross-promote a shared event</small></span><b>Strong fit</b></li>
+              <li><span class="collab-partner-icon"><img src="./assets/photos/partner-hearth.jpg" alt="" loading="lazy" /></span><span><strong>Hearth &amp; Co.</strong><small>Cookware brand · demo or product-loan partner</small></span><b>Explore</b></li>
+              <li><span class="collab-partner-icon"><img src="./assets/photos/partner-pages.jpg" alt="" loading="lazy" /></span><span><strong>Pages &amp; Pantry Books</strong><small>Bookshop · host or promote a food event</small></span><b>Explore</b></li>
+            </ul>
+          </section>
+
+          <section class="collab-deliverable" aria-labelledby="collab-audience-title">
+            <div class="collab-deliverable-head">
+              <span class="collab-flow-number">02</span>
+              <div><p class="collab-flow-agent">Social butterfly · Audience &amp; promotion</p><h4 id="collab-audience-title">Who to invite and where to reach them</h4></div>
+            </div>
+            <div class="collab-audience-grid">
+              <article><strong>Local food lovers</strong><p>People who follow neighborhood restaurants, pop-ups, and tasting events.</p></article>
+              <article><strong>Home cooks &amp; cookbook fans</strong><p>Readers who enjoy trying recipes and meeting the people behind them.</p></article>
+            </div>
+            <ul class="collab-platform-list">
+              <li><strong>Instagram</strong><span>Reels, Stories, and partner posts to announce the event and share the menu.</span></li>
+              <li><strong>TikTok</strong><span>Short cooking clips and behind-the-scenes prep to reach local food fans.</span></li>
+              <li><strong>Email</strong><span>A direct invitation with the event details and RSVP link.</span></li>
+            </ul>
+          </section>
+
+          <section class="collab-deliverable" aria-labelledby="collab-decor-title">
+            <div class="collab-deliverable-head">
+              <span class="collab-flow-number">03</span>
+              <div><p class="collab-flow-agent">Trendsetter · Decor &amp; furniture ideas</p><h4 id="collab-decor-title">A warm, welcoming tasting-room setup</h4></div>
+            </div>
+            <div class="collab-decor-grid">
+              <article><img class="decor-photo" src="./assets/photos/decor-tables.jpg" alt="" loading="lazy" /><div><strong>Shared dining tables</strong><small>Flexible seating that makes conversation easy.</small></div></article>
+              <article><img class="decor-photo" src="./assets/photos/decor-chairs.jpg" alt="" loading="lazy" /><div><strong>Wood or bistro chairs</strong><small>Comfortable, mix-and-match seating for the room.</small></div></article>
+              <article><img class="decor-photo" src="./assets/photos/decor-florals.jpg" alt="" loading="lazy" /><div><strong>Linen runners &amp; small florals</strong><small>Soft color and low centerpieces that leave room for food.</small></div></article>
+              <article><img class="decor-photo" src="./assets/photos/decor-candles.jpg" alt="" loading="lazy" /><div><strong>Warm lamps &amp; candlelight</strong><small>Cozy light for the tasting and photos.</small></div></article>
+            </div>
+            <p class="collab-deliverable-note">Decor directions to source or rent—not confirmed inventory or vendor quotes.</p>
+          </section>
+        </div>
+        <blockquote class="ws-says">The team connects a potential host, the guests to invite, and a space that feels right for the event.</blockquote>
+      </section>
+
+      <aside class="inv-panel inv-info collab-outcome">
+        <div class="inv-card">
+          <p class="inv-label">Event concept</p>
+          <p class="collab-outcome-title">A partner-hosted tasting for local food lovers</p>
+          <p class="collab-outcome-copy">Pair a local host with a short menu, a simple RSVP campaign, and a cozy shared table.</p>
+        </div>
+        <div class="inv-card">
+          <p class="inv-label">Deliverables in this brief</p>
+          <ul class="collab-measures">
+            <li>4 potential partner profiles</li>
+            <li>2 audience groups + 3 promotion channels</li>
+            <li>4 decor and furniture directions</li>
+          </ul>
+        </div>
+        <p class="collab-caveat">Illustrative planning deliverables. Partner details, audience size, stock, and pricing need verification before outreach or booking.</p>
+      </aside>
+    </dialog>
+
+    <script src="planet.js?v=21"></script>
+    <script src="game.js?v=45"></script>
   </body>
 </html>

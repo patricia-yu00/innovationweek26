@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" fill="none">
+  <defs>
+    <linearGradient id="back-wall" x1="600" y1="30" x2="600" y2="490" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#51434A"/>
+      <stop offset="1" stop-color="#31262E"/>
+    </linearGradient>
+    <linearGradient id="side-wall" x1="0" y1="0" x2="1200" y2="470" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#423139"/>
+      <stop offset=".5" stop-color="#5C4850"/>
+      <stop offset="1" stop-color="#362830"/>
+    </linearGradient>
+    <linearGradient id="floor" x1="600" y1="430" x2="600" y2="760" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9A785F"/>
+      <stop offset="1" stop-color="#594338"/>
+    </linearGradient>
+    <linearGradient id="window" x1="250" y1="118" x2="250" y2="387" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D4E8D3"/>
+      <stop offset=".48" stop-color="#ABC8B5"/>
+      <stop offset="1" stop-color="#698879"/>
+    </linearGradient>
+    <radialGradient id="light" cx="0" cy="0" r="1" gradientTransform="matrix(0 390 -480 0 625 360)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFD497" stop-opacity=".23"/>
+      <stop offset="1" stop-color="#FFD497" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="floorboards" width="132" height="60" patternUnits="userSpaceOnUse" patternTransform="skewX(-26)">
+      <path stroke="#E3BE91" stroke-opacity=".19" stroke-width="2" d="M0 0h132M0 59h132M66 0v59"/>
+    </pattern>
+  </defs>
+  <path fill="url(#side-wall)" d="M0 0h1200v493H0z"/>
+  <path fill="url(#back-wall)" d="m70 42 1060 0-75 430H145z"/>
+  <path fill="url(#light)" d="M0 0h1200v760H0z"/>
+  <path fill="#28232B" d="M154 70h302v340H154z"/>
+  <path fill="url(#window)" d="M176 92h258v294H176z"/>
+  <path fill="#7A9C84" d="M176 327c48-73 95-70 141-13 34-68 73-65 117-3v75H176z"/>
+  <path fill="#BBC9A7" fill-opacity=".72" d="M176 356c56-29 86-17 126 4 41-32 85-24 132 5v21H176z"/>
+  <path stroke="#E9D3B0" stroke-width="15" d="M305 92v294m-129-147h258"/>
+  <path fill="#6E5050" d="M750 138h250v332H750z"/>
+  <path fill="#A77A62" d="M767 155h216v298H767z"/>
+  <path fill="#574047" d="M782 172h186v263H782z"/>
+  <path fill="#D4A77C" d="M800 403h151v18H800z"/>
+  <path fill="#D9AD7C" d="M816 208h42v195h-42zm52-27h37v222h-37zm48 44h37v178h-37z"/>
+  <path fill="#694A44" d="M820 228h34v11h-34zm0 43h34v10h-34zm0 43h34v10h-34zm53-78h29v11h-29zm0 47h29v10h-29zm0 44h29v10h-29zm48-53h29v11h-29zm0 47h29v10h-29z"/>
+  <path stroke="#D0A676" stroke-width="8" d="M598 0v126"/>
+  <path fill="#E4B977" d="M557 130h82l-12 26h-58z"/>
+  <path fill="#FFE1A6" fill-opacity=".46" d="m568 156 59 0 156 315H419z"/>
+  <path fill="url(#floor)" d="M0 470h1200v290H0z"/>
+  <path fill="url(#floorboards)" d="M0 470h1200v290H0z"/>
+  <path stroke="#D3AA7C" stroke-opacity=".46" stroke-width="12" d="M146 473h908M0 523h1200"/>
+  <path fill="#414539" d="M58 402c-24-70 2-128 35-147 39 29 47 83 8 142 50-68 102-73 127-46-14 47-58 77-126 66 75 11 104 53 85 86-51 4-94-33-101-100-2 70-43 109-84 96-18-48 5-93 61-121z"/>
+  <path fill="#718159" d="M93 448h11v46H93z"/>
+  <path fill="#5A4738" d="M46 486h108l-12 34H58z"/>
+  <path stroke="#54413A" stroke-width="9" d="m67 511-8 76m77-76 8 76"/>
+  <path fill="#43513E" d="M1080 397c-21-59 1-108 29-124 32 24 39 71 7 119 41-57 85-62 106-39-12 39-49 65-104 55 62 9 87 44 71 72-42 4-78-28-84-84-2 58-35 91-69 80-15-40 4-76 51-101z"/>
+  <path fill="#7F8B61" d="M1102 436h9v40h-9z"/>
+  <path fill="#594439" d="M1061 470h94l-10 31h-74z"/>
+  <path stroke="#5B453A" stroke-width="8" d="m1080 498-7 73m66-73 8 73"/>
+  <path stroke="#F5D08F" stroke-width="3" d="M83 50v88m172-117v92m171-108v90m171-86v98m172-105v98m170-86v91m131-60v98"/>
+  <circle cx="83" cy="136" r="10" fill="#FFE6AC"/>
+  <circle cx="255" cy="111" r="10" fill="#FFE6AC"/>
+  <circle cx="426" cy="103" r="10" fill="#FFE6AC"/>
+  <circle cx="597" cy="103" r="10" fill="#FFE6AC"/>
+  <circle cx="769" cy="103" r="10" fill="#FFE6AC"/>
+  <circle cx="939" cy="111" r="10" fill="#FFE6AC"/>
+  <circle cx="1070" cy="146" r="10" fill="#FFE6AC"/>
+  <path fill="#35292E" fill-opacity=".42" d="M0 0h1200v760H0z"/>
+</svg>
