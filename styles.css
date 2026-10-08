@@ -932,7 +932,7 @@ button.inv-slot:hover { transform: translateY(-2px); border-color: rgba(255, 255
 .verdict.is-warn { background: rgba(255, 196, 92, 0.16); color: #ffc45c; }
 .verdict.is-bad { background: rgba(255, 107, 107, 0.16); color: #ff8b8b; }
 
-/* vibe checker */
+/* vibe jelly */
 .ws-invites { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
 .ws-invite { margin: 0; display: grid; gap: 8px; }
 .invite-card { aspect-ratio: 5 / 7; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 6px; padding: 14px 10px; border-radius: 6px; text-align: center; box-shadow: 0 14px 28px rgba(0, 0, 0, 0.45); }
@@ -971,7 +971,7 @@ button.inv-slot:hover { transform: translateY(-2px); border-color: rgba(255, 255
 .spark polyline { fill: none; stroke-width: 2.5; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
 .trend-row .verdict { justify-self: end; }
 
-/* party curator */
+/* party pillbug */
 .ws-venues { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 14px; }
 .venue-card strong { display: block; margin-top: 8px; font-size: 0.86rem; }
 .venue-card p { margin: 2px 0 0; color: var(--muted); font-size: 0.72rem; }
@@ -1257,10 +1257,17 @@ button.inv-slot:hover { transform: translateY(-2px); border-color: rgba(255, 255
 
 /* Village free-roam & background settings */
 #world { cursor: grab; touch-action: none; }
-.village-settings-wrap { position: absolute; right: 16px; bottom: 16px; z-index: 5; display: grid; justify-items: end; gap: 8px; }
+.village-settings-wrap { position: absolute; right: 16px; bottom: 16px; z-index: 5; display: grid; grid-template-columns: auto 40px; align-items: center; justify-items: end; gap: 8px; }
+.village-settings-wrap > .village-settings { grid-column: 1 / -1; }
 .village-settings-toggle { display: grid; place-items: center; width: 40px; height: 40px; border: 1px solid rgba(255, 255, 255, .16); border-radius: 50%; background: rgba(14, 11, 13, .82); color: #f4e8de; cursor: pointer; backdrop-filter: blur(8px); }
 .village-settings-toggle:hover, .village-settings-toggle[aria-expanded="true"] { border-color: rgba(255, 255, 255, .4); }
 .village-settings-toggle svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; }
+.village-sound-toggle { display: flex; align-items: center; gap: 7px; min-height: 40px; padding: 8px 12px; border: 1px solid rgba(255, 255, 255, .16); border-radius: 22px; background: rgba(14, 11, 13, .82); color: #f4e8de; font: inherit; font-size: .75rem; cursor: pointer; backdrop-filter: blur(8px); }
+.village-sound-toggle:hover { border-color: rgba(255, 255, 255, .4); }
+.village-sound-toggle:focus-visible { outline: 2px solid #ff9ccc; outline-offset: 3px; }
+.village-sound-toggle svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.village-sound-toggle .sound-muted, .village-sound-toggle[aria-pressed="true"] .sound-waves { display: none; }
+.village-sound-toggle[aria-pressed="true"] .sound-muted { display: block; }
 .village-settings { width: 236px; padding: 12px; border: 1px solid rgba(255, 255, 255, .14); border-radius: 14px; background: rgba(14, 11, 13, .92); color: #f4e8de; box-shadow: 0 14px 40px rgba(0, 0, 0, .45); backdrop-filter: blur(10px); }
 .village-settings[hidden] { display: none; }
 .village-settings p { margin: 0 0 9px; font-size: .68rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(244, 232, 222, .65); }

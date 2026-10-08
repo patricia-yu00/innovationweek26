@@ -32,6 +32,10 @@ const designerSelectedCount = document.querySelector("#designer-item-count");
 const designerTotal = document.querySelector("#designer-total");
 const designerReturnButton = document.querySelector("#designer-back");
 const designerFullscreenButton = document.querySelector("#designer-fullscreen");
+const villageAudio = new VillageAudio({
+  button: document.querySelector("#village-mute"),
+  onError: (message) => showToast(message),
+});
 
 const world = { width: 1800, height: 1100 };
 const venueOptions = {
@@ -92,8 +96,8 @@ const walkers = [
     status: "Making the right introductions",
     task: "“I'm reaching out to contractors and brands who'd be a perfect match for your cookbook.”",
     note: "I'm shortlisting photographers, caterers, and kitchen brands that fit your vibe, then starting the first conversations.",
-    walkSheet: "./assets/sprites/trendsetter-walk.png",
-    portrait: "./assets/sprites/trendsetter-portrait.png",
+    walkSheet: "./assets/sprites/matchmaker-walk.png",
+    portrait: "./assets/sprites/matchmaker-portrait.png",
     color: "#ff9ccc",
     ink: "#3d0a24",
   }),
@@ -102,12 +106,13 @@ const walkers = [
     status: "Reading the room (and the algorithm)",
     task: "“I'm spotting the food trends your audience is about to fall for, so your next post lands first.”",
     note: "Matcha everything and tiny dinner parties are rising. I'm pairing them with recipes from your book.",
-    walkSheet: "./assets/sprites/matchmaker-walk.png",
-    portrait: "./assets/sprites/matchmaker-portrait.png",
+    walkSheet: "./assets/sprites/trendsetter-walk.png",
+    portrait: "./assets/sprites/trendsetter-portrait.png",
     color: "#b8a6ff",
     ink: "#1d1450",
   }),
-  makeWalker("Party curator", 1180, 760, {
+  makeWalker("Party pillbug", 1180, 760, {
+    id: "party-curator",
     role: "Plans unforgettable events",
     status: "Scouting launch-party venues",
     task: "“I'm finding venues where your cookbook launch can bring people together around the table.”",
@@ -137,7 +142,8 @@ const walkers = [
     color: "#ffa08a",
     ink: "#3d1008",
   }),
-  makeWalker("Vibe checker", 1500, 620, {
+  makeWalker("Vibe jelly", 1500, 620, {
+    id: "vibe-checker",
     role: "Keeps you on track",
     status: "Checking your success goals",
     task: "“I'm checking your metrics against your goals and spotting the little wins that move you forward.”",
@@ -573,6 +579,7 @@ function showView(view) {
   dashboard.hidden = view !== "dashboard";
   onboarding.hidden = view !== "onboarding";
   village.hidden = !isVillage;
+  villageAudio.setActive(isVillage);
   venueDesigner.hidden = !isVenueDesigner;
   if (isTitle) startTitle();
   else stopTitle();
@@ -1656,6 +1663,7 @@ function dropDeliverable(agent, title, icon) {
   };
   deliverables.push(item);
   saveDeliverables();
+  villageAudio.deliver(agent.id);
   agent.pause = Math.max(agent.pause || 0, 1.6);
   agent.targetX = agent.x;
   agent.targetY = agent.y;
@@ -1902,6 +1910,7 @@ function requestDecision(agent) {
   if (!template || agent.awaitingDecision) return null;
   const decision = { id: `${agent.id}-decision-${Date.now()}`, agentId: agent.id, ...template };
   decisions.push(decision);
+  villageAudio.deliver(agent.id);
   agent.awaitingDecision = true;
   agent.direction = "down";
   agent.targetX = agent.x;
@@ -2143,6 +2152,11 @@ function animate(time) {
   updateDecisions();
   updateCameraPan(delta);
   updateWalkers(delta);
+  const walkingAgentIds = allAgents().filter((agent) =>
+    !agent.collaborating && !agent.awaitingDecision && agent.pause <= 0 &&
+    Math.hypot(agent.targetX - agent.x, agent.targetY - agent.y) >= 5
+  ).map(({ id }) => id);
+  villageAudio.updateIdle(delta, walkingAgentIds);
   draw();
   requestAnimationFrame(animate);
 }

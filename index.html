@@ -9,7 +9,7 @@
     <link rel="icon" type="image/png" sizes="64x64" href="./assets/charmz-favicon-64.png" />
     <link rel="icon" type="image/png" sizes="512x512" href="./assets/charmz-icon.png" />
     <link rel="apple-touch-icon" href="./assets/charmz-apple-touch.png" />
-    <link rel="stylesheet" href="styles.css?v=45" />
+    <link rel="stylesheet" href="styles.css?v=47" />
   </head>
   <body data-view="title">
     <div class="cosmos" aria-hidden="true">
@@ -319,6 +319,10 @@
             </div>
             <label class="village-upload">Upload a background<input id="village-bg-upload" type="file" accept="image/*" /></label>
           </div>
+          <button class="village-sound-toggle" id="village-mute" type="button" aria-pressed="false" aria-label="Mute village sounds" title="Mute village sounds">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path class="sound-waves" d="M15 8a6 6 0 0 1 0 8M18 5a10 10 0 0 1 0 14"/><path class="sound-muted" d="m16 9 5 6m0-6-5 6"/></svg>
+            <span data-sound-label>Sound on</span>
+          </button>
           <button class="village-settings-toggle" id="village-settings-toggle" type="button" aria-expanded="false" aria-controls="village-settings" aria-label="Village settings">
             <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.9 4.9 7 7M17 17l2.1 2.1M2 12h3M19 12h3M4.9 19.1 7 17M17 7l2.1-2.1"/></svg>
           </button>
@@ -572,6 +576,7 @@
     </dialog>
 
     <script src="planet.js?v=21"></script>
-    <script src="game.js?v=49"></script>
+    <script src="assets/agent-audio.js?v=4"></script>
+    <script src="game.js?v=53"></script>
   </body>
 </html>
