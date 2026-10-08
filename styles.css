@@ -36,7 +36,7 @@ body {
   overflow-x: hidden;
 }
 
-button, a { font: inherit; color: inherit; }
+button, a, input, select, textarea { font: inherit; color: inherit; }
 button { cursor: pointer; }
 a { text-decoration: none; }
 :focus-visible { outline: 2px solid var(--pink); outline-offset: 3px; }
@@ -941,11 +941,11 @@ button.inv-slot:hover { transform: translateY(-2px); border-color: rgba(255, 255
 .invite-card em { font-size: 0.66rem; font-style: normal; margin-top: 6px; }
 .invite-kicker { text-transform: uppercase; letter-spacing: 0.18em; font-size: 0.52rem !important; }
 .invite-card.is-warm { background: radial-gradient(circle at 50% 30%, #fff3df, #f7d9b8); color: #6b2e1c; border: 6px double #e0805a; }
-.invite-card.is-warm strong { font-family: "Brush Script MT", cursive; font-size: 1.5rem; color: #c8492b; }
+.invite-card.is-warm strong { font-family: "Caveat", cursive; font-size: 1.5rem; color: #c8492b; }
 .invite-card.is-formal { background: #10131d; color: #e9dcc0; border: 1px solid #c9a96a; outline: 1px solid #c9a96a; outline-offset: -8px; }
-.invite-card.is-formal strong { font-family: Georgia, serif; font-weight: 400; font-style: italic; }
+.invite-card.is-formal strong { font-family: "DM Sans", system-ui, sans-serif; font-weight: 400; font-style: italic; }
 .invite-card.is-neon { background: #07070c; color: #39ff9c; border: 2px solid #ff2bd6; box-shadow: 0 0 18px #ff2bd6aa, 0 14px 28px rgba(0, 0, 0, 0.45); }
-.invite-card.is-neon strong { font-family: Impact, sans-serif; letter-spacing: 0.04em; color: #ff2bd6; text-shadow: 0 0 8px #ff2bd6; }
+.invite-card.is-neon strong { font-family: "Fredoka", "DM Sans", sans-serif; font-weight: 700; letter-spacing: 0.04em; color: #ff2bd6; text-shadow: 0 0 8px #ff2bd6; }
 .ws-invite figcaption p { margin: 4px 0 0; color: var(--muted); font-size: 0.72rem; line-height: 1.35; }
 
 /* matchmaker */
@@ -1105,7 +1105,7 @@ button.inv-slot:hover { transform: translateY(-2px); border-color: rgba(255, 255
 .clause.is-bad { border-color: #d9443a; background: #fde0dc; }
 .clause-flag { display: grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: #fff; font-weight: 800; font-size: 0.8rem; }
 .clause strong { font-size: 0.84rem; }
-.clause p { margin: 2px 0; font-family: Georgia, serif; font-size: 0.8rem; }
+.clause p { margin: 2px 0; font-size: 0.8rem; }
 .clause em { font-size: 0.74rem; font-style: normal; color: #6a4a3a; }
 .clause-ask { display: grid; gap: 2px; padding: 10px; border-radius: 8px; border: 1px dashed #b88a6a; font-size: 0.78rem; }
 
@@ -1127,7 +1127,7 @@ button.inv-slot:hover { transform: translateY(-2px); border-color: rgba(255, 255
 .inv-info .inv-skill { padding: 8px 10px; }
 .inv-info .inv-skill-top { margin-bottom: 6px; }
 .source-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
-.source { display: flex; align-items: center; gap: 8px; padding: 7px 9px; border-radius: 9px; background: rgba(255, 255, 255, 0.04); font-family: ui-monospace, "SF Mono", monospace; font-size: 0.74rem; }
+.source { display: flex; align-items: center; gap: 8px; padding: 7px 9px; border-radius: 9px; background: rgba(255, 255, 255, 0.04); font-size: 0.74rem; }
 .source svg { flex: none; color: var(--agent-color); }
 .source span { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .source small { color: var(--soft); font-family: inherit; font-size: 0.64rem; white-space: nowrap; }
