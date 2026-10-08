@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 150">
+<defs>
+<radialGradient id="a" cx="40%" cy="40%"><stop offset="0" stop-color="#fffaf0"/><stop offset=".6" stop-color="#ffd9a8"/><stop offset="1" stop-color="#f0a77a"/></radialGradient>
+<radialGradient id="b" cx="40%" cy="40%"><stop offset="0" stop-color="#fff4f6"/><stop offset=".6" stop-color="#ffc4d2"/><stop offset="1" stop-color="#e98aa6"/></radialGradient>
+<radialGradient id="c" cx="40%" cy="40%"><stop offset="0" stop-color="#fffdf8"/><stop offset=".7" stop-color="#f6eee2"/><stop offset="1" stop-color="#d9cbb8"/></radialGradient>
+<radialGradient id="glow"><stop offset="0" stop-color="#ffd9a0" stop-opacity=".55"/><stop offset="1" stop-color="#ffd9a0" stop-opacity="0"/></radialGradient>
+</defs>
+<path d="M4 10Q160 40 316 10" stroke="#5c4a36" stroke-width="2" fill="none"/>
+<g stroke="#5c4a36" stroke-width="1.5"><path d="M44 18v28"/><path d="M104 27v44"/><path d="M164 30v22"/><path d="M224 27v50"/><path d="M284 18v30"/></g>
+<g><circle cx="44" cy="70" r="40" fill="url(#glow)"/><circle cx="104" cy="100" r="46" fill="url(#glow)"/><circle cx="164" cy="80" r="40" fill="url(#glow)"/><circle cx="224" cy="108" r="46" fill="url(#glow)"/><circle cx="284" cy="70" r="40" fill="url(#glow)"/></g>
+<circle cx="44" cy="68" r="22" fill="url(#a)"/><circle cx="104" cy="98" r="27" fill="url(#c)"/><circle cx="164" cy="76" r="24" fill="url(#b)"/><circle cx="224" cy="106" r="28" fill="url(#a)"/><circle cx="284" cy="70" r="22" fill="url(#c)"/>
+<g fill="none" stroke="#000" stroke-opacity=".08" stroke-width="1.2">
+<path d="M24 62q20 6 40 0M23 72q21 6 42 0M80 90q24 6 48 0M78 102q26 6 52 0M142 70q22 6 44 0M141 82q23 6 46 0M198 98q26 6 52 0M197 112q27 6 54 0M264 64q20 6 40 0M263 74q21 6 42 0"/></g>
+<g fill="#6b5a44"><rect x="38" y="44" width="12" height="4" rx="1"/><rect x="97" y="69" width="14" height="4" rx="1"/><rect x="158" y="50" width="12" height="4" rx="1"/><rect x="217" y="76" width="14" height="4" rx="1"/><rect x="278" y="46" width="12" height="4" rx="1"/></g>
+</svg>

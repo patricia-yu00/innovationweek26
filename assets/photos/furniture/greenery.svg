@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 140">
+<defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#3f6b3a"/><stop offset="1" stop-color="#86b071"/></linearGradient>
+<g id="l"><path d="M0 0c5-7 14-8 19-2-5 7-13 8-19 2z" fill="url(#g)"/></g></defs>
+<path d="M6 14Q160 70 314 14" fill="none" stroke="#6a5a40" stroke-width="3"/>
+<g fill="none" stroke="#557a45" stroke-width="2"><path d="M60 36q-4 40 6 84"/><path d="M120 50q6 36-2 70"/><path d="M200 50q-8 30 2 60"/><path d="M262 36q6 44-4 92"/><path d="M160 54q2 24-4 44"/></g>
+<g>
+<use href="#l" x="20" y="18" transform="rotate(20 20 18)"/><use href="#l" x="44" y="28"/><use href="#l" x="70" y="38" transform="rotate(30 70 38)"/>
+<use href="#l" x="96" y="46"/><use href="#l" x="124" y="52" transform="rotate(-20 124 52)"/><use href="#l" x="150" y="56"/><use href="#l" x="176" y="54" transform="rotate(200 176 54)"/>
+<use href="#l" x="204" y="48"/><use href="#l" x="232" y="40" transform="rotate(-30 232 40)"/><use href="#l" x="258" y="30"/><use href="#l" x="284" y="20" transform="rotate(-20 284 20)"/>
+<use href="#l" x="58" y="62" transform="rotate(100 58 62)"/><use href="#l" x="62" y="86" transform="rotate(70 62 86)"/><use href="#l" x="64" y="108" transform="rotate(110 64 108)"/>
+<use href="#l" x="118" y="76" transform="rotate(80 118 76)"/><use href="#l" x="120" y="102" transform="rotate(110 120 102)"/>
+<use href="#l" x="198" y="72" transform="rotate(100 198 72)"/><use href="#l" x="200" y="96" transform="rotate(70 200 96)"/>
+<use href="#l" x="264" y="62" transform="rotate(80 264 62)"/><use href="#l" x="262" y="90" transform="rotate(110 262 90)"/><use href="#l" x="258" y="116" transform="rotate(80 258 116)"/>
+<use href="#l" x="160" y="80" transform="rotate(90 160 80)"/>
+</g>
+<g fill="#fff7f0"><circle cx="92" cy="54" r="5"/><circle cx="214" cy="54" r="5"/><circle cx="150" cy="64" r="4"/></g>
+</svg>

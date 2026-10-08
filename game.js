@@ -37,18 +37,27 @@ const world = { width: 1800, height: 1100 };
 const venueOptions = {
   "ember-supper-club": { name: "Ember Supper Club", meta: "60 guests · open kitchen · $$", style: "ember", photo: "./assets/photos/venue-ember.jpg" },
   "pages-and-pantry": { name: "Pages & Pantry Books", meta: "45 guests · reading nook · $", style: "bookshop", photo: "./assets/photos/venue-pages.jpg" },
-  "rooftop-greenhouse": { name: "Rooftop Greenhouse", meta: "80 guests · string lights · $$$", style: "greenhouse", photo: "./assets/photos/venue-greenhouse.jpg" },
+  "rooftop-greenhouse": { name: "Rooftop Greenhouse", meta: "80 guests · string lights · $$$", style: "greenhouse", photo: "./assets/photos/venue-greenhouse.jpg", room: "./assets/photos/room-greenhouse.jpg" },
 };
 const furnitureCatalog = [
-  { id: "banquet-table", name: "Banquet table", detail: "Seats 8 · wood", price: 85, group: "Tables", width: 24, height: 25 },
-  { id: "bistro-table", name: "Round bistro table", detail: "Seats 4 · oak", price: 55, group: "Tables", width: 19, height: 22 },
-  { id: "chair-set", name: "Bistro chairs", detail: "Set of 4 · walnut", price: 40, group: "Seating", width: 18, height: 20 },
-  { id: "lounge-sofa", name: "Lounge sofa", detail: "Seats 3 · rust velvet", price: 120, group: "Seating", width: 25, height: 19 },
-  { id: "area-rug", name: "Woven area rug", detail: "8 × 10 ft · natural", price: 65, group: "Soft touches", width: 35, height: 31 },
-  { id: "florals", name: "Low floral centerpiece", detail: "Seasonal · table-safe", price: 32, group: "Soft touches", width: 15, height: 18 },
-  { id: "floor-lamp", name: "Warm floor lamp", detail: "Ambient light · brass", price: 28, group: "Lighting", width: 14, height: 20 },
-  { id: "string-lights", name: "String lights", detail: "Warm white · 20 ft", price: 36, group: "Lighting", width: 38, height: 14 },
+  { id: "floral-arch", name: "Floral arch", detail: "Blush roses · photo backdrop", price: 145, group: "Florals & greenery", width: 26, height: 38 },
+  { id: "florals", name: "Low floral centerpiece", detail: "Seasonal · table-safe", price: 32, group: "Florals & greenery", width: 15, height: 18 },
+  { id: "pampas-vase", name: "Pampas floor vase", detail: "Dried grasses · ceramic", price: 38, group: "Florals & greenery", width: 13, height: 26 },
+  { id: "greenery", name: "Hanging greenery", detail: "Eucalyptus garland · 12 ft", price: 48, group: "Florals & greenery", width: 36, height: 18 },
+  { id: "string-lights", name: "String lights", detail: "Warm white · 20 ft", price: 36, group: "Lights & glow", width: 38, height: 14 },
+  { id: "paper-lanterns", name: "Paper lanterns", detail: "Set of 5 · warm glow", price: 42, group: "Lights & glow", width: 34, height: 18 },
+  { id: "candles", name: "Pillar candle trio", detail: "LED flicker · brass tray", price: 24, group: "Lights & glow", width: 13, height: 13 },
+  { id: "neon-sign", name: "Neon sign", detail: "“let's party” · pink", price: 65, group: "Lights & glow", width: 26, height: 12 },
+  { id: "floor-lamp", name: "Warm floor lamp", detail: "Ambient light · brass", price: 28, group: "Lights & glow", width: 14, height: 20 },
+  { id: "balloon-garland", name: "Balloon garland", detail: "Blush, cream & gold", price: 58, group: "Party touches", width: 34, height: 16 },
+  { id: "welcome-sign", name: "Welcome sign", detail: "Easel · hand-lettered", price: 30, group: "Party touches", width: 13, height: 25 },
+  { id: "area-rug", name: "Woven area rug", detail: "8 × 10 ft · natural", price: 65, group: "Party touches", width: 35, height: 31 },
+  { id: "banquet-table", name: "Banquet table", detail: "Seats 8 · wood", price: 85, group: "Furniture", width: 24, height: 25 },
+  { id: "bistro-table", name: "Round bistro table", detail: "Seats 4 · oak", price: 55, group: "Furniture", width: 19, height: 22 },
+  { id: "chair-set", name: "Bistro chairs", detail: "Set of 4 · walnut", price: 40, group: "Furniture", width: 18, height: 20 },
+  { id: "lounge-sofa", name: "Lounge sofa", detail: "Seats 3 · rust velvet", price: 120, group: "Furniture", width: 25, height: 19 },
 ];
+const svgDecor = new Set(["floral-arch", "pampas-vase", "greenery", "paper-lanterns", "candles", "neon-sign", "balloon-garland", "welcome-sign"]);
 const FURNITURE_KEY = "charmz-venue-furniture";
 const SPRITE_SIZE = 112;
 const SPRITE_ROWS = { down: 0, up: 1, left: 2, right: 2 };
@@ -236,7 +245,7 @@ function allAgents() {
 }
 
 function furnitureIllustration(id) {
-  return `<img src="./assets/photos/furniture/${id}.png" alt="" draggable="false" loading="lazy">`;
+  return `<img src="./assets/photos/furniture/${id}.${svgDecor.has(id) ? "svg" : "png"}" alt="" draggable="false" loading="lazy">`;
 }
 
 function saveVenueFurniture() {
@@ -282,6 +291,14 @@ function renderVenueFurniture() {
     florals: [50, 45],
     "floor-lamp": [83, 39],
     "string-lights": [50, 22],
+    "floral-arch": [50, 40],
+    "pampas-vase": [12, 55],
+    greenery: [30, 18],
+    "paper-lanterns": [70, 20],
+    candles: [60, 50],
+    "neon-sign": [50, 12],
+    "balloon-garland": [22, 30],
+    "welcome-sign": [88, 62],
   };
   designerRoomFurniture.innerHTML = selected.map((placed) => {
     const product = furnitureCatalog.find(({ id }) => id === placed.id);
@@ -307,6 +324,7 @@ function openVenueDesigner(venueId) {
   document.querySelector("#designer-venue-meta").textContent = venue.meta;
   document.querySelector("#venue-room-label").textContent = venue.name;
   designerRoomStage.dataset.venueStyle = venue.style;
+  designerRoomStage.querySelector(".venue-room-backdrop").src = venue.room || "./assets/photos/venue-room.jpg";
   if (!Array.isArray(venueFurniture[venueId])) venueFurniture[venueId] = [];
   renderVenueFurniture();
   agentDialog.close();
@@ -671,7 +689,12 @@ menuButtons.forEach((button, i) => {
 document.querySelector("#menu-create").addEventListener("click", createVillage);
 document.querySelector("#menu-learn").addEventListener("click", () => showView("about"));
 document.querySelector("#menu-load").addEventListener("click", () => openProjects("title"));
-document.querySelector("#menu-shop").addEventListener("click", () => window.open("https://charmz.entapp.adproto.com", "_blank", "noopener"));
+const SHOP_URL = "https://charmz.entapp.adproto.com";
+document.querySelector("#menu-shop").addEventListener("click", () => {
+  const tab = window.open(SHOP_URL, "_blank");
+  if (tab) tab.opener = null;
+  else window.location.href = SHOP_URL;
+});
 document.querySelector("#menu-quit").addEventListener("click", () => showView("quit"));
 document.querySelector("#quit-back").addEventListener("click", () => showView("title"));
 document.querySelector("#about-back").addEventListener("click", () => showView("title"));
